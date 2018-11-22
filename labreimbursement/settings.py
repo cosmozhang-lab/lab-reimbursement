@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [item.strip() for item in userconfig.allowed_hosts.split(",")] i
 # Application definition
 
 INSTALLED_APPS = [
+    'mainapp.apps.MainAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "middlewares.jsonrequest.JsonRequestMiddleware"
 ]
 
 ROOT_URLCONF = 'labreimbursement.urls'
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'labreimbursement.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ os.path.join(BASE_DIR, "templates") ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +121,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"), os.path.join(BASE_DIR, "node_modules") ]
