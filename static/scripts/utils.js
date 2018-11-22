@@ -1,55 +1,14 @@
-define(function() {
+define(["jquery"], function($) {
     function status_loading(on) {
         if (on) $("#cover").fadeIn(100);
         else $("#cover").fadeOut(100);
     }
-
-    function save_login(username, password) {
-        window.localStorage["auth"] = username + ":" + password;
-    }
-    function clear_login() {
-        window.localStorage.removeItem("auth");
-    }
-    function get_authstr() {
-        return window.localStorage["auth"];
-    }
-    function get_authinfo() {
-        var authstr = window.localStorage["auth"];
-        if (authstr) {
-            authstr = authstr.split(":");
-            return {
-                username: authstr[0],
-                password: authstr[1]
-            };
-        } else {
-            return undefined;
-        }
-    }
-
-    $(function() {
-        $("#button-signout").click(function(event) {
-            $.ajax({
-                url: '/api/login/logout',
-                type: 'POST'
-            })
-            .done(function() {
-                window.location.href = "/login";
-            })
-            .fail(function() {
-            })
-            .always(function() {
-            });
-            
-        });
-    })
 
     $.ajaxSetup({
         contentType: 'application/json',
         beforeSend: function (xhr) {
             var csrftoken = $('input[name="csrfmiddlewaretoken"]').val();
             xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            // var authstr = get_authstr();
-            // if (authstr) xhr.setRequestHeader("Authorization", authstr);
         }
     });
 
