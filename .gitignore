@@ -4,8 +4,8 @@ __pycache__
 *.sqlite3
 *.log
 
+node_modules
+
 /config.conf
 /web.config
-
-node_modules/*
-!node_modules/web.config
+/staticroot
