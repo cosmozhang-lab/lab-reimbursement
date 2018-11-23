@@ -1,0 +1,60 @@
+$navbar_height: 60px;
+
+.frame-navbar {
+  background-color: white;
+  box-shadow: 0 0 5px 0 #000000cc;
+  font-size: 0;
+  height: $navbar_height;
+}
+.frame-navbar .navbar-item {
+  display: inline-block;
+  height: $navbar_height;
+  line-height: $navbar_height;
+  vertical-align: top;
+  padding: 0 15px;
+}
+.frame-navbar .navbar-item.pull-left {
+  float: left;
+}
+.frame-navbar .navbar-item.pull-right {
+  float: right;
+}
+.frame-navbar .navbar-item span,
+.frame-navbar .navbar-item i {
+  font-size: 1rem;
+}
+.frame-navbar a.navbar-item {
+  &:hover {
+    background-color: #cccccccc;
+  }
+}
+
+.frame-navbar .navbar-item.navbar-brand {
+  font-weight: bold;
+}
+
+.frame-navbar .navbar-item.navbar-user {
+  color: #666;
+  position: relative;
+}
+.frame-navbar .navbar-item.navbar-user .navbar-menu {
+  display: none;
+  position: absolute;
+  top: $navbar_height;
+  right: 0;
+  background-color: white;
+}
+.frame-navbar .navbar-item.navbar-user .navbar-menu a.menu-item {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  width: 150px;
+  font-size: 1rem;
+  padding: 0 15px;
+  &:hover {
+    background-color: #cccccccc;
+  }
+}
+.frame-navbar .navbar-item.navbar-user:hover .navbar-menu {
+  display: block;
+}

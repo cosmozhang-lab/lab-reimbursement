@@ -1,0 +1,12 @@
+*.pyc
+__pycache__
+*.sqlite
+*.sqlite3
+*.log
+
+/config.conf
+/web.config
+
+# System Files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,body {
+  background-color: #eeeeee;
+  color: #333333;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.row {
+  margin-top: 15px;
+}
