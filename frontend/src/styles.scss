@@ -21,6 +21,18 @@ a:link {
   color: inherit;
 }
 
+a.common-link,
+a.common-link:hover,
+a.common-link:active,
+a.common-link:visited,
+a.common-link:link {
+  text-decoration: underline;
+  color: #0066ff;
+}
+a.common-link:hover {
+  color: #3399ff;
+}
+
 .row {
   margin-top: 15px;
 }

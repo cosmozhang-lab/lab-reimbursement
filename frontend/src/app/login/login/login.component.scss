@@ -1,0 +1,52 @@
+$input_row_height: 40px;
+
+.login-box-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.login-box-line {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin-top: -150px;
+}
+.login-box {
+  width: 400px;
+  margin: 0 auto;
+  padding: 15px;
+}
+.header-row {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.input-row {
+  height: $input_row_height;
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.input-row.narrow {
+  height: auto;
+  margin-top: 7px;
+}
+.input-row .input-icon,
+.input-row .input-input {
+  height: $input_row_height;
+  line-height: $input_row_height;
+  font-size: 1rem;
+}
+
+.input-row .input-icon {
+  color: #999999;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: $input_row_height;
+  text-align: center;
+}
+
+.input-row .input-input {
+  padding-left: $input_row_height;
+}

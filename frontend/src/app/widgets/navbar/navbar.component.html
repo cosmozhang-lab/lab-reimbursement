@@ -10,7 +10,7 @@
         <a class="menu-item" href="javascript:;">退出登录</a>
       </div>
     </a>
-    <a class="navbar-item navbar-user pull-right" href="javascript:;" *ngIf="!user" (click)="service.hide()">
+    <a class="navbar-item navbar-user pull-right" routerLink="/login" *ngIf="!user">
       <i class="fa fa-user-secret"></i>
       <span>&nbsp;&nbsp;请登录</span>
     </a>
