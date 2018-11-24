@@ -3,10 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './widgets/navbar/navbar.component';
+import { BreadcrumbComponent } from './widgets/breadcrumb/breadcrumb.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

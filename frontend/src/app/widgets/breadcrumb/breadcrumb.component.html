@@ -1,0 +1,6 @@
+<div class="card breadcrumb-box" *ngIf="!service.hidden && service.items.length > 0">
+  <span *ngFor="let item of service.items; let i = index">
+    <span class="breadcrumb-seperator fa fa-angle-right" *ngIf="i > 0"></span>
+    <a class="breadcrumb-item" routerLink="item.link">{{ item.name }}</a>
+  </span>
+</div>
