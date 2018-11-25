@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { AuthService } from 'src/app/common/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavbarService {
   private hidden: boolean;
-  constructor() {
+  constructor(
+    private auth: AuthService
+    ) {
     this.hidden = false;
   }
 

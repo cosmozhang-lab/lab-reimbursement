@@ -27,6 +27,10 @@ def login(request):
     token = add_token(user, int(request.jsondata["expiresecs"]) if "expiresecs" in request.jsondata else settings.DEFAULT_LOGIN_EXPIRE_SECS)
     retdata = {}
     retdata["token"] = str(token)
+    retdata["user"] = {
+        "username": user.username,
+        "nickname": user.nickname
+    }
     return JsonResponse({"success": True, "data": retdata})
 
 def logout(request):

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'corsheaders',
     # 'django.contrib.staticfiles',
 ]
 
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     "middlewares.jsonrequest.JsonRequestMiddleware",
     "middlewares.authentication.AuthenticationMiddleware"
 ]
@@ -102,6 +104,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+## CORS settings
+CORS_ORIGIN_WHITELIST = [item.strip() for item in userconfig.cors_origin_whitelist.split(",")] if userconfig.cors_origin_whitelist else []
+CORS_ALLOW_CREDENTIALS = False # do not support cross-origin cookie operations
 
 
 # Internationalization

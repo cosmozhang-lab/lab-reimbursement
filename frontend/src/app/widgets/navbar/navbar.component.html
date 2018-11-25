@@ -1,7 +1,7 @@
 <div [hidden]="service.hidden" class="frame-navbar">
   <div class="container">
     <a class="navbar-item navbar-brand" routerLink="/"><!--报销登记台--></a>
-    <a class="navbar-item navbar-user pull-right" href="javascript:;" *ngIf="user">
+    <a class="navbar-item navbar-user pull-right" href="javascript:;" *ngIf="auth.user">
       <i class="fa fa-user-circle"></i>
       <!-- <i class="fa fa-user-secret"></i> -->
       <span>&nbsp;&nbsp;张三&nbsp;&nbsp;</span>
@@ -10,7 +10,7 @@
         <a class="menu-item" href="javascript:;">退出登录</a>
       </div>
     </a>
-    <a class="navbar-item navbar-user pull-right" routerLink="/login" *ngIf="!user">
+    <a class="navbar-item navbar-user pull-right" routerLink="/login" *ngIf="!auth.user">
       <i class="fa fa-user-secret"></i>
       <span>&nbsp;&nbsp;请登录</span>
     </a>

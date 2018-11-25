@@ -36,3 +36,43 @@ a.common-link:hover {
 .row {
   margin-top: 15px;
 }
+
+/*===============================*/
+/* patches for bootstrap buttons */
+
+$btn_bgcolor_primary: #007bff;
+$btn_bgcolor_success: #28a745;
+$btn_bgcolor_info: #17a2b8;
+$btn_bgcolor_warning: #ffc107;
+$btn_bgcolor_danger: #dc3545;
+$btn_bgcolor_secondary: #6c757d;
+$btn_bgcolor_light: #6c757d;
+$btn_bgcolor_dark: #6c757d;
+
+$btn_txtcolor_primary: white;
+$btn_txtcolor_success: white;
+$btn_txtcolor_info: white;
+$btn_txtcolor_warning: #212529;
+$btn_txtcolor_danger: white;
+$btn_txtcolor_secondary: white;
+$btn_txtcolor_light: #212529;
+$btn_txtcolor_dark: white;
+
+.btn:focus {
+  box-shadow: none;
+}
+.form-control.btn:focus {
+  &.btn-primary { color: $btn_txtcolor_primary; background-color: $btn_bgcolor_primary; border-color: $btn_bgcolor_primary; }
+  &.btn-success { color: $btn_txtcolor_success; background-color: $btn_bgcolor_success; border-color: $btn_bgcolor_success; }
+  &.btn-info { color: $btn_txtcolor_info; background-color: $btn_bgcolor_info; border-color: $btn_bgcolor_info; }
+  &.btn-warning { color: $btn_txtcolor_warning; background-color: $btn_bgcolor_warning; border-color: $btn_bgcolor_warning; }
+  &.btn-danger { color: $btn_txtcolor_danger; background-color: $btn_bgcolor_danger; border-color: $btn_bgcolor_danger; }
+  &.btn-secondary { color: $btn_txtcolor_secondary; background-color: $btn_bgcolor_secondary; border-color: $btn_bgcolor_secondary; }
+  &.btn-light { color: $btn_txtcolor_light; background-color: $btn_bgcolor_light; border-color: $btn_bgcolor_light; }
+  &.btn-dark { color: $btn_txtcolor_dark; background-color: $btn_bgcolor_dark; border-color: $btn_bgcolor_dark; }
+}
+
+/* patches for bootstrap buttons */
+/*===============================*/
+
+
