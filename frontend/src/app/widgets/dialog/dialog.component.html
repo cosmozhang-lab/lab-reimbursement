@@ -1,0 +1,15 @@
+<div class="modal-header" [ngClass]="clsname">
+  <h4 class="modal-title pull-left">
+    <i *ngIf="type == 'info'" class="icon fa fa-info-circle"></i>
+    <i *ngIf="type == 'warning'" class="icon fa fa-exclamation-triangle"></i>
+    <i *ngIf="type == 'error'" class="icon fa fa-exclamation-circle"></i>
+    <i *ngIf="type == 'question'" class="icon fa fa-question-circle"></i>
+    <span>{{ title }}</span>
+  </h4>
+</div>
+<div class="modal-body" [ngClass]="clsname">
+  <div *ngIf="type == 'info' || type == 'warning' || type == 'error'">{{ content }}</div>
+</div>
+<div class="modal-footer" [ngClass]="clsname">
+  <button *ngIf="type == 'info' || type == 'warning' || type == 'error'" type="button" class="btn btn-light" (click)="close()">确定</button>
+</div>

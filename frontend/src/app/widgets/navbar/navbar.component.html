@@ -1,13 +1,13 @@
 <div [hidden]="service.hidden" class="frame-navbar">
   <div class="container">
     <a class="navbar-item navbar-brand" routerLink="/"><!--报销登记台--></a>
-    <a class="navbar-item navbar-user pull-right" href="javascript:;" *ngIf="auth.user">
+    <a class="navbar-item navbar-user pull-right" [ngClass]="{active:showUserMenu}" href="javascript:;" *ngIf="auth.user" (click)="onUserItemClick($event)">
       <i class="fa fa-user-circle"></i>
       <!-- <i class="fa fa-user-secret"></i> -->
       <span>&nbsp;&nbsp;张三&nbsp;&nbsp;</span>
       <i class="fa fa-caret-down"></i>
-      <div class="card navbar-menu">
-        <a class="menu-item" href="javascript:;">退出登录</a>
+      <div class="card navbar-menu" [hidden]="!showUserMenu">
+        <a class="menu-item" href="javascript:;" (click)=userMenuLogout()>退出登录</a>
       </div>
     </a>
     <a class="navbar-item navbar-user pull-right" routerLink="/login" *ngIf="!auth.user">

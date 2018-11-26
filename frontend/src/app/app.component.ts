@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.breadcrumb.push({ name: "首页", link: "/" });
-    this.breadcrumb.push({ name: "控制台", link: "/" });
+    this.breadcrumb.clear();
   }
 }

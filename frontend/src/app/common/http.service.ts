@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthService } from "./auth.service";
+import { extend, AnyData } from './utils';
 
 interface HttpOptions {
     body?: any;
@@ -23,21 +24,6 @@ export interface ApiResponse<T=any> {
   reason?: string;
   data?: T;
 }
-
-export interface AnyData {
-  [key: string]: any;
-}
-
-let extend = (first: AnyData, ...others: AnyData[]): AnyData => {
-  for (let otheritem of others) {
-    if (otheritem) {
-      for (let k in otheritem) {
-        first[k] = otheritem[k];
-      }
-    }
-  }
-  return first;
-};
 
 @Injectable({
   providedIn: 'root'
@@ -84,7 +70,6 @@ export class HttpService {
   request<T=any> (method: string, path: string, options?: HttpOptions): Observable<T> {
     let url = this.make_url(path);
     let httpoptions = this.make_options(options);
-    console.log(method, url, httpoptions);
     return this.http.request<T>(method, url, httpoptions);
   }
 

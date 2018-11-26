@@ -24,7 +24,8 @@ $navbar_height: 60px;
   font-size: 1rem;
 }
 .frame-navbar a.navbar-item {
-  &:hover {
+  &:hover,
+  &.active {
     background-color: #cccccccc;
   }
 }
@@ -38,11 +39,12 @@ $navbar_height: 60px;
   position: relative;
 }
 .frame-navbar .navbar-item.navbar-user .navbar-menu {
-  display: none;
+  display: block;
   position: absolute;
   top: $navbar_height;
   right: 0;
   background-color: white;
+  z-index: 500;
 }
 .frame-navbar .navbar-item.navbar-user .navbar-menu a.menu-item {
   display: block;
@@ -51,10 +53,8 @@ $navbar_height: 60px;
   width: 150px;
   font-size: 1rem;
   padding: 0 15px;
-  &:hover {
+  &:hover,
+  &.active {
     background-color: #cccccccc;
   }
-}
-.frame-navbar .navbar-item.navbar-user:hover .navbar-menu {
-  display: block;
 }

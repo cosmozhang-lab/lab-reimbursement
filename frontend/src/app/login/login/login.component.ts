@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavbarService } from "src/app/widgets/navbar/navbar.service";
 import { BreadcrumbService } from "src/app/widgets/breadcrumb/breadcrumb.service";
-import { HttpService, ApiResponse } from 'src/app/common/http.service';
-import { LoginService, User } from 'src/app/common/login.service';
-// import { window } from 'src/app/common/window';
+import { LoginService } from '../login.service';
+import { DialogService } from 'src/app/widgets/dialog/dialog.service';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private navbar: NavbarService,
     private breadcrumb: BreadcrumbService,
-    private http: HttpService,
-    private service: LoginService
+    private service: LoginService,
+    private dialog: DialogService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -31,11 +32,11 @@ export class LoginComponent implements OnInit {
 
   login () {
     this.service.login(this.username, this.password).subscribe((res) => {
-      // if (res.success) {
-      //   window.alert("Login success");
-      // } else {
-      //   window.alert("Login failed because " + res.reason);
-      // }
+      if (res.success) {
+        this.router.navigateByUrl("/");
+      } else {
+        this.dialog.error("登录失败", res.reason);
+      }
     });
   }
 
