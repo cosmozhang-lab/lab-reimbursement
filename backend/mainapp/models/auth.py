@@ -7,10 +7,35 @@ class UserRole(models.Model):
 
 class User(models.Model):
     username = models.CharField(max_length=128, unique=True)
-    password = models.CharField(max_length=128)
-    passsalt = models.CharField(max_length=128)
+    password_word = models.CharField(max_length=128)
+    password_salt = models.CharField(max_length=128)
     nickname = models.CharField(max_length=128)
     roles = models.ManyToManyField(UserRole)
+
+    def create(username=None, password=None, nickname=None, roles=None, **kwargs):
+        if username: kwargs["username"] = username
+        if nickname: kwargs["nickname"] = nickname
+        user = User(**kwargs)
+        if password:
+            user.password = password
+        user.save()
+        if roles:
+            for role in roles:
+                user.roles.add(role)
+        return user
+
+    @property
+    def password(self):
+        return self.password_word
+    @password.setter
+    def password(self, password):
+        encrypted = User.EncryptedPassword(password=password)
+        self.password_word = encrypted.encrypted
+        self.password_salt = encrypted.salt
+        return self
+    def test_password(self, password):
+        return (self.password_word == User.EncryptedPassword(password=password, salt=self.password_salt))
+    
     class EncryptedPassword:
         def __init__(self, password=None, salt=None, encrypted=None):
             if encrypted is None:
@@ -26,19 +51,6 @@ class User(models.Model):
             if not isinstance(other, str):
                 raise ValueError("cannot compare EncryptedPassword with %s" % type(other))
             return self.encrypted == other
-    def test_password(self, password):
-        return (self.password == User.EncryptedPassword(password=password, salt=self.passsalt))
-    def set_password(self, password):
-        encrypted = User.EncryptedPassword(password=password)
-        self.password = encrypted.encrypted
-        self.passsalt = encrypted.salt
-        return self
-    def add_role(self, role):
-        self.roles.add(role)
-        return self
-    def remove_role(self, role):
-        self.roles.remove(role)
-        return self
 
 class LoginToken(models.Model):
     token = models.CharField(max_length=128)

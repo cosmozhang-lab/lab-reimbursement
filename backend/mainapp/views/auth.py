@@ -5,6 +5,8 @@ from mainapp.models.auth import User, LoginToken
 from mainapp.utils.auth import add_token
 from urllib.parse import quote as escape
 from django.conf import settings
+
+from mainapp.models.person import Person
  
 def register(request):
     username = request.jsondata["username"]
