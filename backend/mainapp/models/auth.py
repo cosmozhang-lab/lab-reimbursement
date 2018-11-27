@@ -1,18 +1,19 @@
-from django.db import models
+from .common import models, CommonModel
 from hashlib import md5
 from utilities.randomstring import randomstring
 
-class UserRole(models.Model):
+class UserRole(CommonModel):
     name = models.CharField(max_length=128, unique=True)
 
-class User(models.Model):
+class User(CommonModel):
     username = models.CharField(max_length=128, unique=True)
     password_word = models.CharField(max_length=128)
     password_salt = models.CharField(max_length=128)
     nickname = models.CharField(max_length=128)
     roles = models.ManyToManyField(UserRole)
 
-    def create(username=None, password=None, nickname=None, roles=None, **kwargs):
+    @classmethod
+    def create(cls, username=None, password=None, nickname=None, roles=None, **kwargs):
         if username: kwargs["username"] = username
         if nickname: kwargs["nickname"] = nickname
         user = User(**kwargs)

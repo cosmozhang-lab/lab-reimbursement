@@ -7,6 +7,7 @@ from urllib.parse import quote as escape
 from django.conf import settings
 
 from mainapp.models.person import Person
+from mainapp.models.invoice import Invoice, Reimbursement
  
 def register(request):
     username = request.jsondata["username"]
